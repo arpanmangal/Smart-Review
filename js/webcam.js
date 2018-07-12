@@ -2,7 +2,7 @@
 // and sending it to appropriate places for processing
 
 function startWebcam() {
-    /** Call this function for starting the web-cam 
+    /** Call this function for starting the web-cam
      *  It will ask for user permission and start web-cam if permission is granted
     */
     const constraints = {
@@ -12,6 +12,10 @@ function startWebcam() {
     function handleSuccess(stream) {
         video.srcObject = stream;
         document.getElementById("snap").disabled = false;
+        document.getElementById("stop").disabled = false;
+        document.getElementById("start").disabled = true;
+
+
     }
 
     function handleError(error) {
@@ -26,6 +30,9 @@ function startWebcam() {
 function stopWebcam() {
     /** Function for stopping the web-cam */
     video.srcObject.getTracks()[0].stop()
+    document.getElementById("snap").disabled = true;
+    document.getElementById("stop").disabled = true;
+    document.getElementById("start").disabled = false;
 };
 
 

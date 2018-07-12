@@ -2,6 +2,9 @@
 
 function init() {
     document.getElementById("snap").disabled = true;
+    document.getElementById("stop").disabled = true;
+    document.getElementById("start").disabled = false;
+
 }
 
 function snapshot() {
