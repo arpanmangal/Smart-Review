@@ -31,8 +31,13 @@ function getEmotionScores() {
     })
     .done(function (data) {
         // Show formatted JSON on webpage.
-
+        //Add a TRY CATCH CONDITION HERE
+        try{
         lol=data[0]["faceAttributes"]["emotion"];
+        }
+        catch(err){
+        alert("Please click your snapshot again!");  
+        }
         console.log(lol);
         rating=getRating(lol);
         //$("#responseTextArea").val(JSON.stringify(lol,null,2)); //It just shows the response. remove it.
