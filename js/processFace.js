@@ -2,8 +2,8 @@
 const subscriptionKey = "d86d34f783a34b6c99fb393c6a72fe6e";
 const uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
-function getEmotionScores(image) {
-    // This function grabs an image, and makes query to the Microsoft's Face API
+function getEmotionScores() {
+    // This function grabs the image whose snapshot is taken, and makes query to the Microsoft's Face API
     // It retrieves and returns various emotion
     var emotion
     var params = {
@@ -33,10 +33,10 @@ function getEmotionScores(image) {
         // Show formatted JSON on webpage.
 
         lol=data[0]["faceAttributes"]["emotion"];
-        $("#responseTextArea").val(JSON.stringify(lol,null,2));
-        //$("#responseTextArea").val(JSON.stringify(data, null, 2));
-         emotion=JSON.stringify(lol);
-         return lol
+        console.log(lol);
+        rating=getRating(lol);
+        //$("#responseTextArea").val(JSON.stringify(lol,null,2)); //It just shows the response. remove it.
+        $("#responseTextArea").val(rating);
     })
 
     .fail(function (jqXHR, textStatus, errorThrown) {
@@ -52,8 +52,17 @@ function getEmotionScores(image) {
 
 }
 
-function getRating(emotionScores) {
-    // This function takes various emotion scores and converts them to an appropriate rating
+function getRating(emotion) {
+    //$("#responseTextArea").val(rating); //It just shows the response. remove it.
+    var rating=0;
+    console.log(emotion["anger"]);
+    for (var key in emotion){
+        //console.log(emotion[key]);  //works
+        //console.log(typeof(emotion[key]));   //number
+        rating+=emotion[key];
+    }
+    return (rating);
+
 
 }
 
