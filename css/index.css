@@ -28,6 +28,9 @@ button:disabled:hover{
 h1{
 
 }
+p{
+  font-size: 25px;
+}
 #logo {
   font-family: 'Open Sans', sans-serif;
   color: black;
@@ -52,4 +55,12 @@ h1{
   display: block;
   margin: 0 auto;
 
+}
+textarea{
+  background-color: yellow;
+  border-color: black;
+  border: 4px;
+  color: black;
+  text-align: center;;
+  font-size: 15px;
 }
