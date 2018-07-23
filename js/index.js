@@ -8,7 +8,7 @@ function init() {
     document.getElementById("screen").style.display = "none";
     document.getElementById("others").style.display = "none";
     document.getElementById("snap").style.display = "none";
-
+    document.getElementById("myModal").style.display="none";
     document.getElementById("untilconfirm").style.display = "none";
 
 }

@@ -31,7 +31,8 @@ textarea{
   border: 4px;
   color: black;
   text-align: center;;
-  font-size: 15px;
+  font-size: 25px;
+  font-style: italic;
 }
 /* The Modal (background) */
 .modal {
@@ -139,4 +140,51 @@ button:active{
 }
 #snap:active{
   background-color: red;
+}
+
+.bigBtn{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.bigBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.bigBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.bigBtn:hover span {
+  padding-right: 25px;
+}
+
+.bigBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.center{
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  right: 25%;
 }
