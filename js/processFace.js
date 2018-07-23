@@ -1,6 +1,6 @@
 // This JS file contains code which interacts with the Microsoft's Face API
-const subscriptionKey = "d86d34f783a34b6c99fb393c6a72fe6e";
-const uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+const subscriptionKey = "4a8cf0860f0340cba3ec2b2aa7b4cab5";
+const uriBase = "https://southeastasia.api.cognitive.microsoft.com/face/v1.0/detect";
 
 function getEmotionScores() {
     // This function grabs the image whose snapshot is taken, and makes query to the Microsoft's Face API
@@ -36,7 +36,7 @@ function getEmotionScores() {
         lol=data[0]["faceAttributes"]["emotion"];
         }
         catch(err){
-        alert("Please click your snapshot again!");  
+        alert("Please click your snapshot again!");
         }
         console.log(lol);
         rating=getRating(lol);
@@ -60,17 +60,30 @@ function getEmotionScores() {
 function getRating(emotion) {
     //$("#responseTextArea").val(rating); //It just shows the response. remove it.
     var rating=0;
-    console.log(emotion["anger"]);
+    //console.log(emotion["anger"]);
     for (var key in emotion){
+        if (key=="anger"||key=="contempt"||key=="disgust"||key=="fear"){
+          rating-=(2*emotion[key]);
+        }
+        else if (key=="neutral"){
+          rating+=(emotion[key]);
+        }
+        else {
+            rating+=(2*emotion[key]);
+        }
         //console.log(emotion[key]);  //works
         //console.log(typeof(emotion[key]));   //number
-        rating+=emotion[key];
+
     }
-    return (rating);
+    return ((rating+2)*2.5);
 
 
 }
+document.getElementById("confirm").addEventListener("click",function(){
+console.log("Sent to Microsoft")
+getEmotionScores();
 
+})
 /*
 function processImage() {
     var params = {

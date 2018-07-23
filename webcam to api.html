@@ -3,25 +3,178 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="js/webcam.js"></script>
+    <script src="js/processFace.js"></script>
+    <script src="js/index.js"></script>-->
+    <!--<script>
+    const subscriptionKey = "4a8cf0860f0340cba3ec2b2aa7b4cab5";
+    const uriBase = "https://southeastasia.api.cognitive.microsoft.com/face/v1.0";
+
+    function getEmotionScores() {
+        // This function grabs the image whose snapshot is taken, and makes query to the Microsoft's Face API
+        // It retrieves and returns various emotion
+        var emotion
+        var params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "false",
+            "returnFaceAttributes":
+                "emotion"
+        };
+        var sourceImageUrl = url;
+        document.querySelector("#sourceImage").src = sourceImageUrl;  //It is displaying the image
+
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+            type: 'POST',
+            processData: false,
+            contentType: 'application/octet-stream',
+
+            // Request headers.
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+
+            // Request body.
+            data: makeblob(sourceImageUrl),
+        })
+        .done(function (data) {
+            // Show formatted JSON on webpage.
+            //Add a TRY CATCH CONDITION HERE
+            try{
+            lol=data[0]["faceAttributes"]["emotion"];
+            }
+            catch(err){
+            alert("Please click your snapshot again!");
+            }
+            console.log(lol);
+            rating=getRating(lol);
+            //$("#responseTextArea").val(JSON.stringify(lol,null,2)); //It just shows the response. remove it.
+            $("#responseTextArea").val(rating);
+        })
+
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ?
+                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ?
+                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                    jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+
+    }
+
+    function getRating(emotion) {
+        //$("#responseTextArea").val(rating); //It just shows the response. remove it.
+        var rating=0;
+        console.log(emotion["anger"]);
+        for (var key in emotion){
+            //console.log(emotion[key]);  //works
+            //console.log(typeof(emotion[key]));   //number
+            rating+=emotion[key];
+        }
+        return (rating);
+}
+function init() {
+    document.getElementById("snap").disabled = true;
+    document.getElementById("stop").disabled = true;
+    document.getElementById("start").disabled = false;
+
+}
+
+function snapshot() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // url = canvas.toDataURL('image/webp', 1.0)
+    url = canvas.toDataURL('image/png')
+    //var newImg = document.createElement("img"); // create img tag
+    //newImg.src = url;
+    //document.body.appendChild(newImg); // add to end of your document
+    //console.log(url);
+}
+function startWebcam() {
+    /** Call this function for starting the web-cam
+     *  It will ask for user permission and start web-cam if permission is granted
+    */
+    const constraints = {
+        video: { width: { min: 1280 }, height: { min: 720 } }
+    };
+
+    function handleSuccess(stream) {
+        video.srcObject = stream;
+        document.getElementById("snap").disabled = false;
+        document.getElementById("stop").disabled = false;
+        document.getElementById("start").disabled = true;
+
+
+    }
+
+    function handleError(error) {
+        console.error('Reeeejected!', error);
+    }
+
+    navigator.mediaDevices.getUserMedia(constraints).
+        then(handleSuccess).catch(handleError);
+}
+
+
+function stopWebcam() {
+    /** Function for stopping the web-cam */
+    video.srcObject.getTracks()[0].stop()
+    document.getElementById("snap").disabled = true;
+    document.getElementById("stop").disabled = true;
+    document.getElementById("start").disabled = false;
+};
+
+
+makeblob = function (dataURL) {
+    /** This function takes the image data from web-cam returns it after converting to blob */
+    var BASE64_MARKER = ';base64,';
+    if (dataURL.indexOf(BASE64_MARKER) == -1) {
+        var parts = dataURL.split(',');
+        var contentType = parts[0].split(':')[1];
+        var raw = decodeURIComponent(parts[1]);
+        return new Blob([raw], { type: contentType });
+    }
+
+    var parts = dataURL.split(BASE64_MARKER);
+    var contentType = parts[0].split(':')[1];
+    var raw = window.atob(parts[1]);
+    var rawLength = raw.length;
+
+    var uInt8Array = new Uint8Array(rawLength);
+
+    for (var i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i);
+    }
+
+    return new Blob([uInt8Array], { type: contentType });
+}
+
+        </script>-->
+
+
 </head>
 
-<body onload="init();">
+<body><!-- onload="init();"> DONE-->
     <h1>Take a snapshot of the current video stream</h1>
     <p>Click on the Start WebCam button.</p>
 
     <div>
-        <button id="start" onclick="startWebcam();">Start WebCam</button>
-        <button id="stop" onclick="stopWebcam();">Stop WebCam</button>
-        <button id="snap" onclick="snapshot();">Take Snapshot</button>
+        <button id="start" >Start WebCam</button>
+        <button id="stop" >Stop WebCam</button>
+        <button id="snap" >Take Snapshot</button>
     </div>
     <br />
 
-    <video onclick="snapshot(this);" width="1280" height="720" controls autoplay></video>
+    <video id="screen" width="1280" height="720" controls autoplay></video>
 
     <p>Screenshots : </p>
 
     <canvas id="myCanvas" width="1280" height="720"></canvas>
-    <button id="confirm" onclick="getEmotionScores();">Confirm</button>
+    <button id="confirm">Confirm</button>
 
     <div id="wrapper" style="width:1020px; display:table;">
         <div id="jsonOutput" style="width:600px; display:table-cell;">
@@ -39,16 +192,10 @@
         </div>
     </div>
 
-    <script>
-        // var canvas, ctx;
-        // var promise;
-        var video = document.querySelector('video');
-        var url;
-        var lol;
-    </script>
-    <script src="js/webcam.js"></script>
-    <script src="js/processFace.js"></script>
-    <script src="js/index.js"></script>
+<script type="text/javascript" src="js/webcam.js"></script>
+<script type="text/javascript" src="js/processFace.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
 </body>
 
 </html>

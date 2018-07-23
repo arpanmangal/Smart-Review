@@ -1,5 +1,8 @@
 // This file deals with getting webcam data
 // and sending it to appropriate places for processing
+var video = document.querySelector('video');
+var url;
+var lol;
 
 function startWebcam() {
     /** Call this function for starting the web-cam
@@ -59,3 +62,13 @@ makeblob = function (dataURL) {
 
     return new Blob([uInt8Array], { type: contentType });
 }
+
+document.getElementById("start").addEventListener("click",function(){
+startWebcam();
+})
+document.getElementById("stop").addEventListener("click",function(){
+stopWebcam();
+})
+document.getElementById("snap").addEventListener("click",function(){
+snapshot();
+})

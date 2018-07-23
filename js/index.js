@@ -6,6 +6,7 @@ function init() {
     document.getElementById("start").disabled = false;
 
 }
+window.addEventListener("load",init )
 
 function snapshot() {
     var canvas = document.getElementById("myCanvas");
@@ -18,3 +19,6 @@ function snapshot() {
     //document.body.appendChild(newImg); // add to end of your document
     //console.log(url);
 }
+document.getElementById("screen").addEventListener("click",function(){
+snapshot();
+})
