@@ -17,8 +17,7 @@ function startWebcam() {
         document.getElementById("snap").disabled = false;
         document.getElementById("stop").disabled = false;
         document.getElementById("start").disabled = true;
-
-
+        document.getElementById("screen").style.display = "block";
     }
 
     function handleError(error) {
@@ -36,6 +35,8 @@ function stopWebcam() {
     document.getElementById("snap").disabled = true;
     document.getElementById("stop").disabled = true;
     document.getElementById("start").disabled = false;
+    document.getElementById("screen").style.display = "none";
+    document.getElementById("others").style.display = "none";
 };
 
 
