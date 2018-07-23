@@ -5,6 +5,109 @@ body{
   text-align: center;
 }
 
+
+#logo {
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
+  text-align: center;
+}
+
+.wrapping{
+  display: block;
+  margin: 0 auto;
+}
+
+textarea{
+  background-color: yellow;
+  border-color: black;
+  border: 4px;
+  color: black;
+  text-align: center;;
+  font-size: 15px;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 5px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 6px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 5px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
 button{
   background-color: rgb(96,220,52);
   border-color: black;
@@ -24,43 +127,16 @@ button:hover{
 button:disabled:hover{
   background-color: black;
 }
-
-h1{
-
-}
-p{
-  font-size: 25px;
-}
-#logo {
-  font-family: 'Open Sans', sans-serif;
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -3px;
-  line-height: 1;
-  text-shadow: #EDEDED 3px 2px 0;
-  position: relative;
-  text-align: center;
-}
-#option{
-  float:left;
-}
-#text{
-  font-size: 20px;
-
+button:active{
+  transform: translateY(4px);
 }
 .wrapping{
-  display: block;
   margin: 0 auto;
-
+  width: 640px
 }
-textarea{
-  background-color: yellow;
-  border-color: black;
-  border: 4px;
-  color: black;
-  text-align: center;;
-  font-size: 15px;
+#snap{
+  margin: 0 auto;
+}
+#snap:active{
+  background-color: red;
 }

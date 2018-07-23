@@ -13,7 +13,7 @@ function getEmotionScores() {
             "emotion"
     };
     var sourceImageUrl = url;
-    document.querySelector("#sourceImage").src = sourceImageUrl;  //It is displaying the image
+    document.querySelector("#myCanvas").src = sourceImageUrl;  //It is displaying the image
 
     $.ajax({
         url: uriBase + "?" + $.param(params),
@@ -75,13 +75,19 @@ function getRating(emotion) {
         //console.log(typeof(emotion[key]));   //number
 
     }
-    return ((rating+2)*2.5);
-
+    if (rating==0){
+      return "None"
+    }
+    else{
+    return Math.round((rating+2)*2.5);
+}
 
 }
 document.getElementById("confirm").addEventListener("click",function(){
 console.log("Sent to Microsoft")
 getEmotionScores();
+document.getElementById("untilconfirm").style.display = "block";
+
 
 })
 /*
