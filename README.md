@@ -16,7 +16,7 @@ See `index.html` for example usage.
 Install Polymer: `npm i -g polymer`  
 Install Dependencies: `npm install`  
 Run: `polymer serve`  
-Visit: localhost:8081/
+Visit: http://localhost:8081/
 
 ## Further development
 
