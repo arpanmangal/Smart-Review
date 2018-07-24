@@ -251,7 +251,7 @@ class SmartReview extends PolymerElement {
         // neutral emotion
         rating += (neutralContrib * emotions[key]);
       } else {
-        // positive emotions
+        // positive emotions -> happyness and surprise
         rating += (positiveContrib * emotions[key]);
       }
     }
