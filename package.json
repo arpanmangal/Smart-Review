@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/arpanmangal/Smart-Review#readme",
   "dependencies": {
+    "@polymer/neon-animation": "^3.0.0-pre.21",
+    "@polymer/paper-button": "^3.0.0-pre.21",
+    "@polymer/paper-dialog": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.2",
     "@webcomponents/webcomponentsjs": "^2.0.3"
   }
