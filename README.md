@@ -6,6 +6,14 @@ A smart way of generating user reviews, by exploiting their real-time emotions a
 
 Just embed this code in your website or wherever smart review is needed. It's self contained and will do the neccessay stuff to hand over the rating.
 
+P.S. Still under development. See in 1 day...
+
+## Running
+
+```
+polymer serve
+```
+
 ## Further development
 
 - [ ] Developing a browser plugin.

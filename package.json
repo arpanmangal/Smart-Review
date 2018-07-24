@@ -1,0 +1,23 @@
+{
+  "name": "smart-review",
+  "version": "1.0.0",
+  "description": "A smart way of generating user reviews, by exploiting their real-time emotions and getting the true normalised review.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpanmangal/Smart-Review.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpanmangal/Smart-Review/issues"
+  },
+  "homepage": "https://github.com/arpanmangal/Smart-Review#readme",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.3"
+  }
+}
